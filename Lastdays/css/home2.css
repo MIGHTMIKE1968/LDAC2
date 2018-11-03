@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/* CSS Document */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+	text-align:center;
+	background-size:cover;
+}
+
+.navbar-inverse {
+  background: #145b15; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #e8fce8; }
+
+.navbar-inverse .navbar-brand {
+  color: #fff; }
+
+.navbar-inverse .navbar-brand:hover {
+  color: #e8fce8; }
+
+.header {
+  padding-top: 50px; }
+
+.photo {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px; }
+
+h1 {
+  font-family: "Cabin", sans-serif;
+  font-weight: 600;
+  font-size: 3.6rem;
+  line-height: 1.5;
+  text-align: center; }
+
+h5 {
+  font-family: "Cabin", sans-serif;
+  font-size: 1.4rem; }
+
+h6 {
+  font-family: "Cabin", sans-serif;
+  font-size: 1.3rem;
+  color: #e8fce8; }
+
+#art {
+	background: url("../img/pastorar.png") no-repeat center fixed;
+	margin-left: 0.9px;
+	margin-right: 0.9px;
+}
+
+.social {
+  padding-top: 20px;
+  padding-bottom: 40px; }
+
+.footer {
+  width: 100%;
+  background-color: #145b15;
+  color: #fff;
+  text-align: center;
+  padding-top: 20px; }
+
+.sonic {
+  color: #F9E528; }
+
+
+
+
+
+
+
