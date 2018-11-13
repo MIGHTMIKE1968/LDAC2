@@ -11,6 +11,11 @@
 body {
 	text-align:center;
 	background-size:cover;
+    line-height: 1.5;
+}
+
+.row {
+    border: 1px  solid #d4efc9;
 }
 
 .navbar-inverse {
@@ -28,56 +33,79 @@ body {
 .header {
   padding-top: 50px; }
 
+
 .photo {
   text-align: center;
   padding-top: 40px;
-  padding-bottom: 40px; }
+  padding-bottom: 40px; 
+}
+
 
 h1 {
-  font-family: "Cabin", sans-serif;
-  font-weight: 600;
-  font-size: 3.6rem;
-  line-height: 1.5;
-  text-align: center; }
-
-h2{
-	font-family: "Cabin", sans-serif;
-    font-weight: 900;
-	font-style: bold;
-	font-size: 3.2rem;
-	color: rgba(15,77,39,1.00);
-	padding-top: 10px;
-	padding-bottom: 5px;
+    font-family: "Cabin", sans-serif;
+    font-weight: 600;
+    font-size: 3.6rem;
+    text-align: center; 
 }
+
 
 h5 {
   font-family: "Cabin", sans-serif;
-  font-size: 1.4rem; }
+  font-size: 1.4rem; 
+}
+
 
 h6 {
   font-family: "Cabin", sans-serif;
   font-size: 1.3rem;
-  color: #e8fce8; }
+  color: #e8fce8; 
+}
+
 
 #art {
-	background: url("../img/pastorar.png") no-repeat center fixed;
-	margin-left: 0.9px;
-	margin-right: 0.9px;
+  background: url("../img/pastorar.png") no-repeat center fixed;
+  margin-left: 0.9px;
+  margin-right: 0.9px;
 }
+
 
 .social {
   padding-top: 20px;
-  padding-bottom: 40px; }
+  padding-bottom: 40px; 
+}
+
 
 .footer {
   width: 100%;
   background-color: #145b15;
   color: #fff;
   text-align: center;
-  padding-top: 20px; }
+  padding-top: 20px; 
+}
+
 
 .sonic {
-  color: #F9E528; }
+  color: #F9E528; 
+}
+
+/* Float */
+.hvr-float {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+}
 
 
 

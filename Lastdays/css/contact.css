@@ -8,6 +8,18 @@
   padding: 0;
   box-sizing: border-box; }
 
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+
 body {
 	text-align:center;
 	background-size:cover;
@@ -32,47 +44,34 @@ body {
   color: #e8fce8; }
 
 .header {
-  padding-top: 50px; }
+  padding-top: 10px; }
 
 
-.photo {
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 70px; 
+.welcome {
+   display: block;
+   color: #145b15;
+   font-family: Roboto Slab;
+   font-size: 2.2vw;;
+   font-weight: 900;
+   letter-spacing: 1.75rem;
+   text-align: center;
+   text-transform: none;
+   margin-top: 8rem;
+   margin-bottom: 8rem;
+   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),0px -5px 35px rgba(255,255,255,0.3);
+   animation: moveInRight 8s ease-out;
+}
+
+.map {
+    padding-top: 20px;
+    padding-bottom: 60px;
 }
 
 
 h1 {
     font-family: "Cabin", sans-serif;
-    font-weight: 600;
     font-size: 3.6rem;
     text-align: center; 
-}
-
-
-h2{
-	font-family: "Roboto Slab", sans-serif;
-    font-weight: 900;
-	font-style: bold;
-	font-size: 3.2rem;
-	color: #145b15;
-	padding-top: 10px;
-	padding-bottom: 5px;
-}
-
-
-h3{
-	font-weight: normal;
-	font-size: 2.8rem;
-	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-}
-
-
-h4 {
-	font-weight: normal;
-	font-size: 17px;
-	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-	text-align: justify;
 }
 
 
@@ -89,18 +88,6 @@ h6 {
 }
 
 
-p{
-   color: black;
-   text-indent: 40px;
-   font-weight: normal;
-   font-size: 2.2rem;
-   padding-top: 20px;
-   padding-bottom: 20px;
-   margin-right: 100px;
-   margin-left: 100px;
-}
-
-
 #art {
    background: url("../img/pastorar.png") no-repeat center fixed;
    margin-left: 0.9px;
@@ -108,24 +95,9 @@ p{
 }
 
 
-.title {
-   font-size: 3.2rem;
-   padding-top: 50px;
-   padding-bottom: 0;
-}
-
-
-.dates {
-   font-size: 2rem;
-   color: black;
-   padding-top: 5px;
-   padding-bottom: 5px;
-}
-
-
 .social {
-   padding-top: 20px;
-   padding-bottom: 40px; 
+   padding-top: 50px;
+   padding-bottom: 10px; 
 }
 
 
@@ -162,21 +134,32 @@ p{
 }
 
 
-/* Grow */
-.hvr-grow {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
+#contact {
+	padding: 40px 0;
+	color: #140660;
 }
-.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+
+#contact .btn-default {
+	border: 1px solid #f9d902;
+	background-color: #f9d902;
+	border-radius: 0;
+}
+
+#contact .btn-default:hover {
+	color: #f9d902;
+	background-color: #140660;
+}
+
+form {
+    padding-bottom: 60px;
+}
+
+p{
+   color: black;
+   font-weight: normal;
+   font-size: 1.9rem;
+   padding-top: 0px;
+   padding-bottom: 60px;
 }
 
 

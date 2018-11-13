@@ -38,8 +38,9 @@ body {
 .photo {
     text-align: center;
     padding-top: 40px;
-    padding-bottom: 70px; 
+    padding-bottom: none; 
 }
+
 
 
 h1 {
@@ -50,14 +51,15 @@ h1 {
 }
 
 
+
 h2{
-	font-family: "Roboto Slab", sans-serif;
+	font-family: "Rock Salt";
     font-weight: 900;
 	font-style: bold;
-	font-size: 3.2rem;
+	font-size: 7.0rem;
 	color: #145b15;
-	padding-top: 10px;
-	padding-bottom: 5px;
+	padding-top: 50px;
+	padding-bottom: 20px;
 }
 
 
@@ -109,9 +111,19 @@ p{
 
 
 .title {
-   font-size: 3.2rem;
+   font-family: "Rock Salt";
+   font-size: 6.0rem;
    padding-top: 50px;
-   padding-bottom: 0;
+   padding-bottom: 20px;
+   animation: moveInRight 2s ease-in;
+}
+
+.title2 {
+   font-family: "Rock Salt";
+   font-size: 6.0rem;
+   padding-top: 20px;
+   padding-bottom: 50px;
+   animation: moveInLeft 2s ease-in;
 }
 
 
@@ -124,7 +136,7 @@ p{
 
 
 .social {
-   padding-top: 20px;
+   padding-top: none;
    padding-bottom: 40px; 
 }
 
@@ -179,6 +191,26 @@ p{
   transform: scale(1.1);
 }
 
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 
 

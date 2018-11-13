@@ -1,3 +1,39 @@
+<?php
+
+
+if ($_POST['submit']) {
+	
+	if (!$_POST['name']) {
+		$error="<br/>- Please enter your name";
+	}
+	
+	if (!$_POST['email']) {
+		$error.="<br/>- Please enter your email";
+	}
+	
+	if (!$_POST['message']) {
+		$error.="<br/>- Please enter a message";
+	}
+	
+	if (!$_POST['check']) {
+		$error.="<br/>- Please confirm you are human";
+	}
+	
+	if ($error) {
+		$results='<div class="alert alert-danger" role="alert"><strong>Sorry, there is an error.</strong> Please correct the following: '.$error.' </div';
+	} else {
+		mail("mike@mikesdreamosophy.com", "Contact message", "Name: ".$_POST['name'].
+			"Email: ".$_POST['email'].
+			"Message: ".$_POST['message']);
+		{
+		$results='<div class="alert alert-success" role="alert"><stron>Thank you! We will get back in touch with you shortly.</div>';	
+		}
+	}
+}
+		   
+
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -12,13 +48,12 @@
 
     <script src="https://use.fontawesome.com/fb1c328b44.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/about.css">
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
         
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
     
-<title>About Us</title>
+<title>Contact Us</title>
 </head>
 
 <body>
@@ -42,7 +77,7 @@
           		<ul class="dropdown-menu">
             		<li><a href="founder.html">OUR &nbsp;FOUNDER</a></li>
             		<li><a href="pastor.html">OUR &nbsp;PASTOR</a></li>
-                    <li><a href="#">MINISTER'S &nbsp;BOARD</a></li>
+                    <li><a href="minboard.html">MINISTER'S &nbsp;BOARD</a></li>
           		</ul>
         	</li>
             <li class="dropdown">
@@ -62,38 +97,68 @@
     </div>      
 </nav>
     
-<div class="container">
-    
-    <div>
-		<div class="header">
-            <img src="img/LDAChead.png" width="100%" height="auto" alt=""/>
-        </div>
-        
-        <div class="row" id="art">
+<section id="contact">
+		<div class="container">
             
-            <div>
-                <h2 class="title">We Are Living In</h2>
-                <h2 class="title2">The Last Days</h2>
+            <div class="header">
+                <img src="img/LDAChead.png" width="100%" height="auto" alt=""/>
             </div>
+		
+			<div class="row" id="art">
+				
+				<h1 class="welcome">Contact Form</h1>
+				
+				<div class="col-md-6 col-md-offset-3">
+					
+					<?php echo $results;?>
+					
+					
+					<form method="post" role="form">
+						
+						<div class="form-group">
+							<input type="text" name="name" class="form-control" placeholder="Your Name" value="<?php echo $_POST['name']; ?>">
+						</div>
+						
+						<div class="form-group">
+							<input type="email" name="email" class="form-control" placeholder="Your Email" value="<?php echo $_POST['email']; ?>">
+						</div>
+						
+						<div class="form-group">
+							<textarea name="message" rows="8" class="form-control" placeholder="Message..."><?php echo $_POST['message']; ?></textarea>
+						</div>
+						
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="check"> I am human
+							</label>
+						</div>
+						
+						<div align="center">
+							<input type="submit" name="submit" class="btn btn-default" value="send message"/>
+						</div>
+						
+					</form>
+						  
+				</div>
                 
-            
-            <div>
-                <h4>
-          	      <p><b>The Last Days Apostolic Church</b> was founded in 1977 by the late <b>District Elder Arthur Roy Johnson</b> and is now under the stewardship of <b>District Elder May E. Johnson</b>.</p><br> 
-
-                  <p>Originally named the Holy Trinity Pentecostal Church, it begun at 25th and Hebert in St. Louis, MO. The church later moved to 1910 North Union. Now the church owns a spacious four story church home located at 3311 Pennsylvania Avenue, St. Louis, MO. God has truly blessed us and we are steadily working on both the natural and spiritual buildings.</p><br>
-
-                  <p>Since the inception of the ministry of <b>The Last Days Apostolic Church</b>, men and women from all walks of life have been saved and blessed. Many people have given their time, talents and resources to make this ministry a success. Many have became laborers in the vineyard for Christ, and a part of the Royal Priesthood of God that God is using today. More ministries have been born from <b>The Last Days Apostolic Church</b>, where ministers have heard the call of God to begin pastoring their own ministries.</p><br>
-
-                  <p>Since 1994 <b>The Last Days Apostolic Church</b> has been a member of the Pentecostal Assemblies of the World.</p><br>
-                    
-                  <p>We believe in godly repentance of sins, and in the baptism in Jesus’ Name for the remission of sins, and the baptism of the Holy Ghost, speaking in other tongues as the spirit of God gives the utterance, as described in <b>Acts 2:37-38.</b></p>
-			    </h4>
-            </div>
-            
-            
-            <div class="photo">
-			    <img src="img/dove_key.png" class="hvr-grow" width="40%" height="auto" alt=""/>
+                
+                <div>
+                    <h1 class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.3155882198375!2d-90.2357026846585!3d38.59560587961824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b471fb6f4b8b%3A0x475cad330bac80de!2sLast+Days+Apostolic+Church!5e0!3m2!1sen!2sus!4v1467592735838" width="480" height="360" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </h1>
+                </div>
+                
+                <div>
+                    <h1>
+                        <p>
+                           3311 Pennsylvania Avenue<br>
+                           Saint Louis, Missouri 63118<br>
+                           Phone: 314.771.6310 • 314.776.8527<br>
+                           Email: praise@theldachurch.com
+                        </p>
+                    </h1>
+                </div>
+                
 			</div>
             
             
@@ -103,11 +168,13 @@
                 <a href="https://twitter.com"><img src="img/black twitter logo copy.png" class="hvr-float" width="4%" height="4%" alt=""/></a>
 
                 <a href="https://www.youtube.com/channel/UCvOssxRwuzTPY3gQu5Cnsew"><img src="img/black yt logo.png" class="hvr-float" width="4%" height="4%" alt=""/></a></h1>
-            </div>
+             </div>
+		
+		
+		</div>
+    
+	</section>
             
-        </div>
-    </div>
-</div>
     
  <div class="container footer">
     <h5>© Copyright 2018, Last Days Apostolic Church. All Rights Reserved.</h5><br>

@@ -1,3 +1,39 @@
+<?php
+
+
+if ($_POST['submit']) {
+	
+	if (!$_POST['name']) {
+		$error="<br/>- Please enter your name";
+	}
+	
+	if (!$_POST['email']) {
+		$error.="<br/>- Please enter your email";
+	}
+	
+	if (!$_POST['message']) {
+		$error.="<br/>- Please enter a message";
+	}
+	
+	if (!$_POST['check']) {
+		$error.="<br/>- Please confirm you are human";
+	}
+	
+	if ($error) {
+		$results='<div class="alert alert-danger" role="alert"><strong>Sorry, there is an error.</strong> Please correct the following: '.$error.' </div';
+	} else {
+		mail("mike@mikesdreamosophy.com", "Contact message", "Name: ".$_POST['name'].
+			"Email: ".$_POST['email'].
+			"Message: ".$_POST['message']);
+		{
+		$results='<div class="alert alert-success" role="alert"><stron>Thank you! We will get back in touch with you shortly.</div>';	
+		}
+	}
+}
+		   
+
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -7,18 +43,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+		
         
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="https://use.fontawesome.com/fb1c328b44.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/about.css">
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
         
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
     
-<title>About Us</title>
+<title>Contact Us</title>
 </head>
 
 <body>
@@ -53,10 +90,11 @@
           		</ul>
         	</li>
             <li><a href="#">BOOKSTORE</a></li>
+             <li><a href="#">PRAYER &nbsp;REQUEST</a></li>
             <li><a href="#">CALENDER</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="contactform.php"><i class="fa fa-envelope envelope" aria-hidden="true"></i> &nbsp;CONTACT &nbsp;US</a></li>
+            <li><a href="contact.html"><i class="fa fa-envelope envelope" aria-hidden="true"></i> &nbsp;CONTACT &nbsp;US</a></li>
         </ul>       
     </div>
     </div>      
@@ -64,37 +102,53 @@
     
 <div class="container">
     
-    <div>
-		<div class="header">
-            <img src="img/LDAChead.png" width="100%" height="auto" alt=""/>
-        </div>
-        
-        <div class="row" id="art">
-            
-            <div>
-                <h2 class="title">We Are Living In</h2>
-                <h2 class="title2">The Last Days</h2>
-            </div>
-                
-            
-            <div>
-                <h4>
-          	      <p><b>The Last Days Apostolic Church</b> was founded in 1977 by the late <b>District Elder Arthur Roy Johnson</b> and is now under the stewardship of <b>District Elder May E. Johnson</b>.</p><br> 
-
-                  <p>Originally named the Holy Trinity Pentecostal Church, it begun at 25th and Hebert in St. Louis, MO. The church later moved to 1910 North Union. Now the church owns a spacious four story church home located at 3311 Pennsylvania Avenue, St. Louis, MO. God has truly blessed us and we are steadily working on both the natural and spiritual buildings.</p><br>
-
-                  <p>Since the inception of the ministry of <b>The Last Days Apostolic Church</b>, men and women from all walks of life have been saved and blessed. Many people have given their time, talents and resources to make this ministry a success. Many have became laborers in the vineyard for Christ, and a part of the Royal Priesthood of God that God is using today. More ministries have been born from <b>The Last Days Apostolic Church</b>, where ministers have heard the call of God to begin pastoring their own ministries.</p><br>
-
-                  <p>Since 1994 <b>The Last Days Apostolic Church</b> has been a member of the Pentecostal Assemblies of the World.</p><br>
-                    
-                  <p>We believe in godly repentance of sins, and in the baptism in Jesus’ Name for the remission of sins, and the baptism of the Holy Ghost, speaking in other tongues as the spirit of God gives the utterance, as described in <b>Acts 2:37-38.</b></p>
-			    </h4>
-            </div>
-            
-            
-            <div class="photo">
-			    <img src="img/dove_key.png" class="hvr-grow" width="40%" height="auto" alt=""/>
+    <section id="contact">
+		<div class="container">
+		
+			<div class="row">
+				
+				<h1 class="welcome">Contact Form</h1>
+				
+				<div class="col-md-6 col-md-offset-3">
+					
+					<?php echo $results;?>
+					
+					<center>
+						<p><strong>Questions and comments are welcome. mike@mikesdreamosophy.com</strong></p>
+					</center>
+					
+					<form method="post" role="form">
+						
+						<div class="form-group">
+							<input type="text" name="name" class="form-control" placeholder="Your Name" value="<?php echo $_POST['name']; ?>">
+						</div>
+						
+						<div class="form-group">
+							<input type="email" name="email" class="form-control" placeholder="Your Email" value="<?php echo $_POST['email']; ?>">
+						</div>
+						
+						<div class="form-group">
+							<textarea name="message" rows="8" class="form-control" placeholder="Message..."><?php echo $_POST['message']; ?></textarea>
+						</div>
+						
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="check"> I am human
+							</label>
+						</div>
+						
+						<div align="center">
+							<input type="submit" name="submit" class="btn btn-default" value="send message"/>
+						</div>
+						
+					</form>
+						  
+				</div>
 			</div>
+		
+		
+		</div>
+	</section>
             
             
             <div class="social">
@@ -106,6 +160,7 @@
             </div>
             
         </div>
+    
     </div>
 </div>
     
