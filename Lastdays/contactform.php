@@ -22,7 +22,7 @@ if ($_POST['submit']) {
 	if ($error) {
 		$results='<div class="alert alert-danger" role="alert"><strong>Sorry, there is an error.</strong> Please correct the following: '.$error.' </div';
 	} else {
-		mail("mike@mikesdreamosophy.com", "Contact message", "Name: ".$_POST['name'].
+		mail("praise@theldachurch.com", "Contact message", "Name: ".$_POST['name'].
 			"Email: ".$_POST['email'].
 			"Message: ".$_POST['message']);
 		{
@@ -167,7 +167,7 @@ if ($_POST['submit']) {
     
                 <a href="https://twitter.com"><img src="img/black twitter logo copy.png" class="hvr-float" width="4%" height="4%" alt=""/></a>
 
-                <a href="https://www.youtube.com/channel/UCvOssxRwuzTPY3gQu5Cnsew"><img src="img/black yt logo.png" class="hvr-float" width="4%" height="4%" alt=""/></a></h1>
+                <a href="https://www.youtube.com/channel/UCkjL2R8mL3Jy4GbHqkVj1rw?disable_polymer=true"><img src="img/black yt logo.png" class="hvr-float" width="4%" height="4%" alt=""/></a></h1>
              </div>
 		
 		
