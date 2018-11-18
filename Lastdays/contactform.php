@@ -83,12 +83,12 @@ if ($_POST['submit']) {
             <li class="dropdown">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MUSIC &nbsp;AND &nbsp;SERMONS<span class="caret"></span></a>
           		<ul class="dropdown-menu">
-            		<li><a href="#">MUSIC</a></li>
-            		<li><a href="#">SERMONS</a></li>
+            		<li><a href="music.html">MUSIC</a></li>
+            		<li><a href="sermons.html">SERMONS</a></li>
           		</ul>
         	</li>
             <li><a href="#">BOOKSTORE</a></li>
-            <li><a href="#">CALENDER</a></li>
+            <li><a href="calender.php">CALENDER</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="contactform.php"><i class="fa fa-envelope envelope" aria-hidden="true"></i> &nbsp;CONTACT &nbsp;US</a></li>
@@ -106,7 +106,7 @@ if ($_POST['submit']) {
 		
 			<div class="row" id="art">
 				
-				<h1 class="welcome">Contact Form</h1>
+				<h1 class="welcome">Contact Us</h1>
 				
 				<div class="col-md-6 col-md-offset-3">
 					

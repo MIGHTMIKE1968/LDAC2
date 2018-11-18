@@ -1,3 +1,64 @@
+<?php
+// Set your timezone
+date_default_timezone_set('US/Central');
+// Get prev & next month
+if (isset($_GET['ym'])) {
+    $ym = $_GET['ym'];
+} else {
+    // This month
+    $ym = date('Y-m');
+}
+// Check format
+$timestamp = strtotime($ym . '-01');
+if ($timestamp === false) {
+    $ym = date('Y-m');
+    $timestamp = strtotime($ym . '-01');
+}
+// Today
+$today = date('Y-m-j', time());
+// For H3 title
+$html_title = date('Y / m', $timestamp);
+// Create prev & next month link     mktime(hour,minute,second,month,day,year)
+$prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
+$next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
+// You can also use strtotime!
+// $prev = date('Y-m', strtotime('-1 month', $timestamp));
+// $next = date('Y-m', strtotime('+1 month', $timestamp));
+// Number of days in the month
+$day_count = date('t', $timestamp);
+ 
+// 0:Sun 1:Mon 2:Tue ...
+$str = date('w', mktime(0, 0, 0, date('m', $timestamp), 1, date('Y', $timestamp)));
+//$str = date('w', $timestamp);
+// Create Calendar!!
+$weeks = array();
+$week = '';
+// Add empty cell
+$week .= str_repeat('<td></td>', $str);
+for ( $day = 1; $day <= $day_count; $day++, $str++) {
+     
+    $date = $ym . '-' . $day;
+     
+    if ($today == $date) {
+        $week .= '<td class="today">' . $day;
+    } else {
+        $week .= '<td>' . $day;
+    }
+    $week .= '</td>';
+     
+    // End of the week OR End of the month
+    if ($str % 7 == 6 || $day == $day_count) {
+        if ($day == $day_count) {
+            // Add empty cell
+            $week .= str_repeat('<td></td>', 6 - ($str % 7));
+        }
+        $weeks[] = '<tr>' . $week . '</tr>';
+        // Prepare for new week
+        $week = '';
+    }
+}
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -12,12 +73,13 @@
 
     <script src="https://use.fontawesome.com/fb1c328b44.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/pastor.css">
+    <link rel="stylesheet" type="text/css" href="css/cal.css">
         
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     
-<title>Our Pastor</title>
+<title>Church Calender</title>
 </head>
 
 <body>
@@ -71,23 +133,33 @@
         <div class="row" id="art">
             
             <div>
-                <h2 class="title">District Elder May E. Johnson</h2>
-                <h3>Pastor</h3>
+                <h3><a href="?ym=<?php echo $prev; ?>">&lt;</a> <?php echo $html_title; ?> <a href="?ym=<?php echo $next; ?>">&gt;</a></h3>
+                <table class="table table-bordered">
+                <tr>
+                <th>S</th>
+                <th>M</th>
+                <th>T</th>
+                <th>W</th>
+                <th>T</th>
+                <th>F</th>
+                <th>S</th>
+                </tr>
+            <?php
+                foreach ($weeks as $week) {
+                    echo $week;
+                }
+            ?>
+                </table>
             </div>
-              
-            <div class="col-md-12 col-sm-12">
-			    <div class="photo">
-				    <img src="img/maypic2.png" class="hvr-grow" width="20%" height="auto" alt=""/>
-			    </div>
-		    </div>
             
+         </div>
+        
             <div>
-                <h4>
-          	      <p><b>District Elder May E. Johnson</b> is the wife of the late, great, and much beloved <b>District Elder Arthur R. Johnson</b>. She is also the mother of six children and numerous grandchildren.</p><br> <p>Named Interim Pastor following the tragic loss of her husband in 2010, she was officially installed as pastor of <b>The Last Days Apostolic Church</b> in August of 2011.</p><br> <p>In 2012 <b>Pastor May E. Johnson</b> became <b>District Elder May E. Johnson</b>. She was given the office of District Elder and a jurisdiction within the Midwestern District Council of the Pentecostal Assemblies of the World.</p><br>
-                  <p>Our Pastor is a busy woman of God who wears many spiritual hats. She willingly makes herself available to each of us whether young, old, male, female, member or visitor. She is a living example of a Pentecostal Proverbs 31 woman. As the woman of God, she is chosen and ordained to instruct us in all manners of holy living  and how to dwell together in unity.</p>
-                </h4>
+                <h1 class="month">November 2018 - Schedule Of Events</h1>
+                <h2>
+                    <p>Thursday, November 22, 2018 - Thanksgiving Day Service @ 10:30AM</p>
+                </h2>
             </div>
-            
             
             <div class="social">
                 <h1><a href="https://www.facebook.com/The-Last-Days-Apostolic-Church-176068399402095/?ref=aymt_homepage_panel"><img src="img/black fb logo.png" class="hvr-float" width="4%" height="4%" alt=""/></a>
